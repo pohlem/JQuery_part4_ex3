@@ -7,24 +7,44 @@
   <title>Exercice 3</title>
 </head>
 <body>
-	<h1>Moyenne</h1>
+	<h1>Créer Compte</h1>
     <form>
-		<label>Première note</label>
-		<input type="number" class='note' id="oneN" name="note" min=0 max=20 step=0.1>
-		<input type="number" class='note' id="twoN" name="note" min=0 max=20 step=0.1>
-		<input type="number" class='note' id="threeN" name="note" min=0 max=20 step=0.1>
-		<input type="number" class='note' id="fourN" name="note" min=0 max=20 step=0.1>
-		<input type="number" class='note' id="fiveN" name="note" min=0 max=20 step=0.1>
+		<label>Nom</label>
+		<input type="text" id="lastName" name="lastName">
+		<label>Prénom</label>
+		<input type="text" id="firstName" name="firstName">
+		<label>Mail</label>
+		<input type="text" id="mail" name="mail">
+		<label>Numéro de Téléphone</label>
+		<input type="text" id="telNumber" name="telNumber">
 		<input type="button" id="submit" name="submit" value="Valider">
     </form>
   <script>
-  	var note = 0;
 	$('#submit').click(function(event){
-		$('.note').each(function(event){
-		note = (parseFloat(note)+parseFloat($(this).val())).toFixed(2);
-		 });
-		alert('Ta moyenne est de '+(parseFloat(note)/5).toFixed(2));
-		note=0;
+		var lastName = $('input[name="lastName"]').val();
+		console.log(lastName);
+		var regex = RegExp("[^a-zA-Z-]");
+		console.log(regex.test(lastName));
+		if(regex.test(lastName) || lastName==""){
+			alert('lastName');
+		}
+		var firstName = $('input[name="firstName"]').val();
+		console.log(regex.test(firstName));
+		if(regex.test(firstName) || firstName==""){
+			alert('firstName');
+		}
+		var mail = $('input[name="mail"]').val();
+		regex = RegExp("[^0-9a-zA-Z_@.]");
+		console.log(regex.test(mail));
+		if(regex.test(mail) || mail==""){
+			alert('mail');
+		}
+		var telNumber = $('input[name="telNumber"]').val();
+		regex = RegExp("[^0-9]");
+		console.log(regex.test(telNumber));
+		if(regex.test(telNumber) || telNumber==""){
+			alert('telNumber');
+		}
   });
 </script>
 </body>
