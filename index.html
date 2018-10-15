@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="assets/JQuery/jquery-3.2.1.js"></script>
+  <title>Exercice 3</title>
+</head>
+<body>
+	<h1>Moyenne</h1>
+    <form>
+		<label>Première note</label>
+		<input type="number" class='note' id="oneN" name="note" min=0 max=20 step=0.1>
+		<input type="number" class='note' id="twoN" name="note" min=0 max=20 step=0.1>
+		<input type="number" class='note' id="threeN" name="note" min=0 max=20 step=0.1>
+		<input type="number" class='note' id="fourN" name="note" min=0 max=20 step=0.1>
+		<input type="number" class='note' id="fiveN" name="note" min=0 max=20 step=0.1>
+		<input type="button" id="submit" name="submit" value="Valider">
+    </form>
+  <script>
+  	var note = 0;
+	$('#submit').click(function(event){
+		$('.note').each(function(event){
+		note = (parseFloat(note)+parseFloat($(this).val())).toFixed(2);
+		 });
+		alert('Ta moyenne est de '+(parseFloat(note)/5).toFixed(2));
+		note=0;
+  });
+</script>
+</body>
+</html>
